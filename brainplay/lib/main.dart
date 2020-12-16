@@ -1,96 +1,62 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:simple_coverflow/simple_coverflow.dart';
 
-void main() => runApp(new MyApp());
+main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
-  static List<Container> data = [
-    parallaxCards(Color(0xFFF7A4B7), 'red', 'I am Red!\n Text Here', 'LEARN'),
-    parallaxCards(
-        Color(0xFF6ED1F2), 'blue', 'I am BLue!\n Text Here', 'ENTERTAINMENT'),
-    parallaxCards(
-        Color(0xFFFFE8B3), 'yellow', 'I am Yellow!\n Text Here', 'QUIZZ')
-  ];
-
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: new Scaffold(
-        backgroundColor: Colors.white24,
-        appBar: new AppBar(
-          title: new Text('BrainPlay'),
-        ),
-        body: new CoverFlow(
-          dismissibleItems: false,
-          itemBuilder: widgetBuilder,
-          currentItemChangedCallback: (int index) {
-            print(index);
-          },
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Color(0xFFD9D9D9),
+        body: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 60),
+                child: Text(
+                  'Please Select a Language',
+                  style: TextStyle(fontFamily: 'MysteryQuest', fontSize: 30),
+                ),
+              ),
+              button('ph', 'FILIPINO'),
+              SizedBox(
+                height: 30,
+              ),
+              button('usa', 'ENGLISH'),
+            ],
+          ),
         ),
       ),
     );
   }
 
-  Widget widgetBuilder(BuildContext context, int index) {
-    return data[index % data.length];
+  FlatButton button(String country, String languageText) {
+    return FlatButton(
+      onPressed: () {},
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          border: Border.all(
+            width: 3,
+            style: BorderStyle.solid,
+            color: Colors.black,
+          ),
+        ),
+        child: Card(
+          child: ListTile(
+            leading: Image.asset(
+              'assets/$country.png',
+            ),
+            title: Text(
+              languageText,
+              style: TextStyle(
+                  fontFamily: 'MysteryQuest', fontSize: 25, letterSpacing: 7),
+            ),
+          ),
+        ),
+      ),
+    );
   }
-}
-
-Container parallaxCards(
-    Color color, String image, String text, String buttonText) {
-  return Container(
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.all(
-        Radius.circular(20),
-      ),
-      gradient: LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        colors: [Colors.white, color],
-      ),
-    ),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Expanded(
-          flex: 4,
-          //child: FittedBox(
-          child: Image.asset('assets/$image.png'),
-          //fit: BoxFit.fill,
-          //),
-        ),
-        Expanded(
-          child: Center(
-            child: Text(
-              text,
-              style: TextStyle(fontFamily: 'MysteryQuest', fontSize: 25),
-              textAlign: TextAlign.center,
-            ),
-          ),
-        ),
-        Expanded(
-          child: FlatButton(
-            onPressed: () {},
-            child: SizedBox(
-              width: double.infinity,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
-                  ),
-                ),
-                margin: EdgeInsets.all(20),
-                alignment: Alignment.center,
-                child: Text(
-                  buttonText,
-                  style: TextStyle(fontSize: 30, fontFamily: 'MysteryQuest'),
-                ),
-              ),
-            ),
-          ),
-        ),
-      ],
-    ),
-  );
 }

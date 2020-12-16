@@ -13,7 +13,8 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.0
-  simple_coverflow: ^0.0.8
+  #simple_coverflow: ^0.0.8
+  page_view_indicator: ^2.0.4
 
 dev_dependencies:
   flutter_test:
