@@ -17,6 +17,7 @@ dependencies:
   custom_splash: ^0.0.2
   whiteboardkit: ^0.2.2
   carousel_images: ^1.0.3
+  buttons_tabbar: ^1.0.2+1
 
 dev_dependencies:
   flutter_test:
@@ -26,7 +27,10 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
-    - assets/letters/
+    - assets/capital_letters/
+    - assets/small_letters/
+    - assets/numbers/
+    - assets/shapes/
 
   fonts:
     - family: MysteryQuest
