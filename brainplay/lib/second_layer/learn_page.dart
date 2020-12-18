@@ -22,11 +22,15 @@ class LearnPage extends StatelessWidget {
               delayBetween: Duration(milliseconds: 100),
               offset: -0.5,
               children: <Widget>[
-                categoryButton('Alphabet'),
-                categoryButton('Numbers'),
-                categoryButton('Shapes'),
-                categoryButton('Colors'),
-                categoryButton('Math'),
+                categoryButton(
+                    context: context, text: 'Alphabet', route: 'alphabet'),
+                categoryButton(
+                    context: context, text: 'Numbers', route: 'numbers'),
+                categoryButton(
+                    context: context, text: 'Shapes', route: 'shapes'),
+                categoryButton(
+                    context: context, text: 'Colors', route: 'colors'),
+                categoryButton(context: context, text: 'Math', route: 'math'),
               ],
             ),
             //SizedBox to push the buttons up.

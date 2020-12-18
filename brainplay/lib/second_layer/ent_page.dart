@@ -22,9 +22,10 @@ class EntPage extends StatelessWidget {
               delayBetween: Duration(milliseconds: 100),
               offset: -0.2,
               children: <Widget>[
-                categoryButton('Draw'),
-                categoryButton('Songs'),
-                categoryButton('Stories')
+                categoryButton(context: context, text: 'Draw', route: 'draw'),
+                categoryButton(context: context, text: 'Songs', route: 'songs'),
+                categoryButton(
+                    context: context, text: 'Stories', route: 'stories'),
               ],
             ),
           ],

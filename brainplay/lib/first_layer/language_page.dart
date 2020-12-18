@@ -1,13 +1,21 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../functions.dart';
 
 class LanguagePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Color(0xFFD9D9D9),
-        body: SafeArea(
+    return Scaffold(
+      body: SafeArea(
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              colorFilter: ColorFilter.mode(
+                  Colors.black.withOpacity(0.8), BlendMode.dstATop),
+              image: AssetImage('assets/background.png'),
+            ),
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -16,7 +24,28 @@ class LanguagePage extends StatelessWidget {
                 margin: EdgeInsets.symmetric(vertical: 60),
                 child: Text(
                   'Please Select a Language',
-                  style: TextStyle(fontFamily: 'MysteryQuest', fontSize: 30),
+                  style: TextStyle(
+                      fontFamily: 'Acme',
+                      fontSize: 30,
+                      color: Colors.white,
+                      shadows: [
+                        Shadow(
+                            // bottomLeft
+                            offset: Offset(-1.5, -1.5),
+                            color: Colors.black),
+                        Shadow(
+                            // bottomRight
+                            offset: Offset(1.5, -1.5),
+                            color: Colors.black),
+                        Shadow(
+                            // topRight
+                            offset: Offset(1.5, 1.5),
+                            color: Colors.black),
+                        Shadow(
+                            // topLeft
+                            offset: Offset(-1.5, 1.5),
+                            color: Colors.black),
+                      ]),
                 ),
               ),
               pickerButton(context, 'ph', 'FILIPINO'),

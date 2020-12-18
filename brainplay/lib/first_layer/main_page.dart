@@ -14,14 +14,14 @@ class MainPage extends StatelessWidget {
           context: context,
           color: Color(0xFFF7A4B7),
           image: 'red',
-          text: 'HI, my name is ____ \nchoose me if you want to',
+          text: 'HI, my name is ____ \nchoose me if you want to\n',
           buttonText: 'LEARN',
           pageName: 'learn'),
       page(
           context: context,
           color: Color(0xFF6ED1F2),
           image: 'blue',
-          text: 'HI, my name is ____ \nchoose me if you want',
+          text: 'HI, my name is ____ \nchoose me if you want\n',
           buttonText: 'ENTERTAINMENT',
           pageName: 'ent'),
       page(
@@ -63,7 +63,7 @@ class MainPage extends StatelessWidget {
           parent: animationController,
           curve: Curves.ease,
         ),
-        child: Icon(Icons.favorite, color: Colors.black87),
+        child: Icon(Icons.star, color: Colors.black87),
       ),
       highlightedBuilder: (animationController, index) => ScaleTransition(
         scale: CurvedAnimation(

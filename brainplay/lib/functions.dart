@@ -38,10 +38,11 @@ Container pickerButton(BuildContext context, country, String languageText) {
 //FontStyle with spacing of 7, for language picker and title in appbar.
 TextStyle spacedFont({double size}) {
   return TextStyle(
-      fontFamily: 'MysteryQuest',
+      fontFamily: 'Cinzel',
       color: Colors.black,
       fontSize: size,
-      letterSpacing: 7);
+      letterSpacing: 4,
+      fontWeight: FontWeight.bold);
 }
 
 //appBar of the Application.
@@ -71,14 +72,16 @@ BoxDecoration gradient(Color first, Color second) {
 }
 
 //Button style used in second_layer.
-Container categoryButton(String text) {
+Container categoryButton({BuildContext context, String text, String route}) {
   //Container to wrap FlatButton.
   return Container(
     margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
     //to go to specified page on pressed.
     child: FlatButton(
       padding: EdgeInsets.all(0),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushNamed(context, '/$route');
+      },
       //Container used to wrap Text and Styling.
       child: Container(
         //Creates black and round borders.
@@ -131,9 +134,9 @@ Container page(
             child: Text(
               text,
               style: TextStyle(
-                  fontFamily: 'MysteryQuest',
+                  fontFamily: 'BalsamiqSans',
                   fontSize: 30,
-                  fontWeight: FontWeight.w500),
+                  fontWeight: FontWeight.w100),
               textAlign: TextAlign.center,
             ),
           ),
@@ -163,7 +166,8 @@ Container page(
                 alignment: Alignment.center,
                 child: Text(
                   buttonText,
-                  style: TextStyle(fontSize: 30, fontFamily: 'MysteryQuest'),
+                  style: TextStyle(
+                      fontSize: 30, fontFamily: 'Acme', letterSpacing: 5),
                 ),
               ),
             ),
